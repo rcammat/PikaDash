@@ -2,7 +2,7 @@ FROM node:22.12.0 AS frontend-build
 
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
-RUN npm ci
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 COPY frontend/ ./
 RUN npm run build
 
@@ -10,7 +10,7 @@ FROM node:22.12.0 AS backend-deps
 
 WORKDIR /app/backend
 COPY backend/package*.json ./
-RUN npm ci --omit=dev
+RUN if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --omit=dev; fi
 
 FROM node:22.12.0 AS runtime
 
