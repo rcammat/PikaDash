@@ -1,4 +1,4 @@
-FROM node:22.14.0-bookworm-slim AS frontend-build
+FROM node:22.12.0 AS frontend-build
 
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
@@ -6,13 +6,13 @@ RUN npm ci
 COPY frontend/ ./
 RUN npm run build
 
-FROM node:22.14.0-bookworm-slim AS backend-deps
+FROM node:22.12.0 AS backend-deps
 
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm ci --omit=dev
 
-FROM node:22.14.0-bookworm-slim AS runtime
+FROM node:22.12.0 AS runtime
 
 ENV NODE_ENV=production
 WORKDIR /app/backend
