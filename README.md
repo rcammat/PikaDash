@@ -54,6 +54,20 @@ Para integración con `PikaBot`, por defecto ya valen:
 
 Eso funciona mientras `PikaDash` y `PikaBot` estén en la red Docker compartida `pikabot_shared`.
 
+## URLs públicas recomendadas para Discord Developer Portal
+
+Si vas a usar monetización de aplicaciones en Discord, deja preparadas estas URLs públicas:
+
+- `https://pikadash.rcammat.com/terms`
+- `https://pikadash.rcammat.com/privacy`
+
+La idea es que Discord pueda revisar fácilmente:
+
+- landing pública del producto,
+- política de privacidad,
+- términos del servicio,
+- y una propuesta premium visible y coherente.
+
 ## Paso 3. Construir y levantar
 
 ```bash
